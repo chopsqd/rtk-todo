@@ -17,3 +17,7 @@ li {
     color: red;
     cursor: pointer;
 }
+
+input:checked + span {
+    text-decoration: line-through;
+}
