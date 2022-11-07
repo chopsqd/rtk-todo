@@ -1,8 +1,8 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
-import {removeTodo, toggleTodoComplete} from "../redux/todoSlice";
+import {deleteTodo, toggleStatus} from "../redux/todoSlice";
 
-const TodoItem = ({id, text, completed}) => {
+const TodoItem = ({id, title, completed}) => {
     const dispatch = useDispatch()
 
     return (
@@ -10,12 +10,12 @@ const TodoItem = ({id, text, completed}) => {
             <input
                 type="checkbox"
                 checked={completed}
-                onChange={() => dispatch(toggleTodoComplete({id}))}
+                onChange={() => dispatch(toggleStatus(id))}
             />
-            <span>{text}</span>
+            <span>{title}</span>
             <span
                 className={"delete"}
-                onClick={() => dispatch(removeTodo({id}))}
+                onClick={() => dispatch(deleteTodo(id))}
             >&times;</span>
         </li>
     );

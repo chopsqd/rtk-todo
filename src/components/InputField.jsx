@@ -1,13 +1,15 @@
 import React from 'react';
 
-const InputField = ({text, handleInput, handleSubmit}) => {
+const InputField = ({value, updateText, handleAction}) => {
+
     return (
         <label>
             <input
-                value={text}
-                onChange={event => handleInput(event.target.value)}
+                value={value}
+                placeholder={'Enter a title'}
+                onChange={event => updateText(event.target.value)}
             />
-            <button onClick={handleSubmit}>Add</button>
+            <button onClick={handleAction}>Add</button>
         </label>
     );
 };
